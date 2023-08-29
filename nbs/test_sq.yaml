@@ -1,0 +1,31 @@
+workflow_name: 'test'
+workflow_version: '1.0'
+workflow_description: 'A test workflow'
+blocks:
+  - block_type: 'serial'
+    components:
+      - type: 'SquareComponent'
+        init_args:
+          number: 2
+          expects_input: false
+      - type: 'SquareComponent'
+        init_args:
+          expects_input: true
+      - type: 'SquareComponent'
+        init_args:
+          expects_input: true
+  - block_type: 'parallel'
+    components:
+      - type: 'SquareComponent'
+        init_args:
+          number: 2
+          expects_input: false
+      - type: 'SquareComponent'
+        init_args:
+          number: 3
+          expects_input: false
+      - type: 'PrintComponent'
+        init_args:
+          message: 'hello, world!'
+          expects_input: false
+  

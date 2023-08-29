@@ -1,0 +1,16 @@
+workflow_name: 'test'
+workflow_version: '1.0'
+workflow_description: 'A test workflow'
+blocks:
+  - block_type: 'serial'
+    components:
+      - type: 'PrintComponent'
+        message: 'Hello, World!'
+      - type: 'PrintComponent'
+        message: 'Goodbye, World!'
+  - block_type: 'parallel'
+    components:
+      - type: 'PrintComponent'
+        message: 'Hello, World!'
+      - type: 'PrintComponent'
+        message: 'Goodbye, World!'

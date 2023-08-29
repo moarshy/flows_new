@@ -1,0 +1,24 @@
+workflow_name: 'test'
+workflow_version: '1.0'
+workflow_description: 'A test workflow'
+blocks:
+  - block_type: 'serial'
+    components:
+      - type: 'PrintComponent'
+        init_args:
+          message: 'Hello, World!'
+          expects_input: false
+      - type: 'PrintComponent'
+        init_args:
+          message: ''
+          expects_input: true
+  - block_type: 'parallel'
+    components:
+      - type: 'PrintComponent'
+        init_args:
+          message: 'Hello, World!'
+          expects_input: false
+      - type: 'PrintComponent'
+        init_args:
+          message: 'hello, world!'
+          expects_input: false

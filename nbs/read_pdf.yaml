@@ -1,0 +1,17 @@
+workflow_name: 'test'
+workflow_version: '1.0'
+workflow_description: 'A test workflow'
+blocks:
+  - block_type: 'serial'
+    components:
+      - type: 'PDFReaderComponent'
+        init_args:
+          file_path: './data/zhou2020.pdf'
+          expects_input: false
+      - type: 'ChunkerComponent'
+        init_args:
+          expects_input: true
+      - type: 'OpenAIFAISSComponent'
+        init_args:
+          save_path: './data'
+          expects_input: true

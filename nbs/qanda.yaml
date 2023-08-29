@@ -1,0 +1,22 @@
+workflow_name: 'test'
+workflow_version: '1.0'
+workflow_description: 'A test workflow'
+blocks:
+  - block_type: 'serial'
+    components:
+      - type: 'LoadRetrieversComponent'
+        init_args:
+          path: './data'
+          k: 3
+          expects_input: false
+      - type: 'RetrieverComponent'
+        init_args:
+          query: 'What is the document about'
+          concatenate_docs: true
+          expects_input: true
+      - type: 'QandAComponent'
+        init_args:
+          query: 'What is the document about'
+          system_message: "As an AI assistant helping answer a user's question, your task is to provide the answer to the user's question based on the collection of documents provided. Each document is demarcated by the 'Source:' tag. In most cases, the answer to the user's question can be found in one of the documents. If the documents do not contain the required information to answer user's question, respond with 'I don't know'. In this case, you can provide a link to the Chainlink documentation. Each point in your answer should be formatted with corresponding reference(s) using markdown. Conclude your response with a footnote that enumerates all the references involved. Please make sure to use only the references provided in the documents and not to use any external references. The footnote should be formatted as follows: 'References: [^1^]: <reference 1> [^2^]: <reference 2> [^3^]: <reference 3>'. Please avoid duplicating references. For example, if the same reference is used twice in the answer, please only include it once in the footnote."
+          user_message: "User's question: {question}\n\nDocument: {document}\n\nAnswer:"
+          expects_input: true

@@ -1,0 +1,8 @@
+ray
+PyYAML==5.3.1
+python-dotenv
+langchain
+llama-index
+pypdf
+faiss-cpu
+tiktoken
